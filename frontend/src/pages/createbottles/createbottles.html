@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Beer Tracker</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <h1 padding>Bottle Creation Form</h1>
+    <ion-card *ngFor="let spec of objectKeys(specs);">
+      <ion-card-content>
+          <ion-item>
+              <ion-label>Existing {{ getPrettyMultiSpecName(spec) }}</ion-label>
+            <ion-select [(ngModel)]="selectedSpecs[spec]" multiple="true" cancelText="Close" okText="Select">
+              <ion-option [value] = "item" *ngFor="let item of specs[spec];">{{ item }}</ion-option>
+            </ion-select>
+          </ion-item>      
+          <ion-item>
+              <ion-label>Create new {{ getPrettySpecName(spec) }}</ion-label>
+              <ion-input type="text" [(ngModel)]="newSpecs[spec]"></ion-input>
+              <button ion-button secondary item-end (click)="createSpec(spec)">Create</button>
+          </ion-item>      
+      </ion-card-content>
+  </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        Scanned bottles
+      </ion-card-header>
+        <ion-card-content>    
+            <ion-list>
+                <ion-item *ngFor="let bottleId of bottleIds;">
+                    <ion-icon name="pricetag" item-start></ion-icon>
+                    {{ bottleId }}
+                </ion-item>
+                <ion-item>
+                    <button ion-button secondary (click)="resetBottles()">Clear Bottles</button>
+                  </ion-item>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+    
+  <ion-item>
+      <button ion-button secondary (click)="createBottles()">Create Bottles</button>
+    </ion-item>
+</ion-content>

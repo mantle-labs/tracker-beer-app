@@ -1,0 +1,67 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Beer Tracker</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+    <h1 padding>Bottle Return Form</h1>
+    <ion-card>
+      <ion-card-header>
+        Customer
+      </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-icon name="contact" item-start></ion-icon>
+        {{ customerEmail}}
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+      <ion-card>
+        <ion-card-header>
+          Scanned bottles
+        </ion-card-header>
+          <ion-card-content>    
+              <ion-list>
+                  <ion-item *ngFor="let bottleId of bottleIds;">
+                      <ion-icon name="pricetag" item-start></ion-icon>
+                      {{ bottleId }}
+                  </ion-item>
+                  <ion-item>
+                      <button ion-button secondary (click)="resetBottles()">Clear Bottles</button>
+                    </ion-item>
+              </ion-list>
+          </ion-card-content>
+      </ion-card>
+  
+      
+    <ion-item>
+      <button ion-button secondary (click)="validateBottles()">Validate Return</button>
+    </ion-item>
+  
+    <ion-card *ngIf="bottles.length > 0">
+      <ion-card-header>
+        Bottle details
+      </ion-card-header>
+  
+      <ion-card-content>
+        <ion-list>
+            <ion-item *ngFor="let bottle of bottles;">
+                <ion-icon name="beer" item-start>
+                </ion-icon>
+                <h2>{{ getBottleName(bottle) }}</h2>
+                <h3> Ingredients: {{ getBottleIngredients(bottle) }}</h3>
+                <p> Beer Type: {{ getBottleBeerType(bottle) }}</p>
+              </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+      
+    <ion-item>
+        <button ion-button secondary (click)="returnBottles()">Return Bottles</button>
+      </ion-item>
+  </ion-content>
+  
