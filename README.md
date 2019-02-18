@@ -9,7 +9,7 @@ With that implementation, customers would rent their bottles and return them.
 That way, customers would only pay for the beer and brewers wouldn't need to buy new glass bottles as often.
 
 ## Before you start
-You might find it easier to implement this project after reading our [documentation](https://docs.mantleblockchain.com).
+You might find it easier to implement this project after reading our [documentation](https://developer.mantleblockchain.com/docs).
 
 ## Functionalities
 - [x] Create Beer bottles with detailed specifications
@@ -137,5 +137,5 @@ Transfer one multi-asset for all scanned bottles
 
 
 ## More docs
-- [Mantle knowledge base](https://docs.mantleblockchain.com)
-- [Mantle API documentation](https://api.mantleblockchain.com/documentation/index.html)
+- [Mantle knowledge base](https://developer.mantleblockchain.com/docs)
+- [Mantle API documentation](https://api.mantleblockchain.com/documentation)
